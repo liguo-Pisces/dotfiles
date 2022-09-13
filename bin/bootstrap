@@ -1,0 +1,27 @@
+#!/bin/env bash
+
+cd "$(dirname $0)/.."
+DOTFILES_ROOT=$(pwd -P)
+
+set -e
+
+
+link_file() {
+  local src=$1 dst=$2
+}
+
+
+install_dotfiles() {
+  echo 'Installing dotfiles'
+
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink*' -not -path '*.git*')
+  do
+    dst=$(grep SYMLINK_TO "$src" | awk -F ':' '{print $2}')
+    link_file "$src" "$dst"
+  done
+}
+
+install_dotfiles
+
+echo ""
+echo "Installed!"
