@@ -20,4 +20,12 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
+# Dotfiles
+export DOTFILES=$(dirname $(dirname $(realpath $0)))
+config_files=($DOTFILES/**/*.zsh)
+for file in ${(M)config_files:#*/setting.zsh}
+do
+  source $file
+done
 
+unset config_files

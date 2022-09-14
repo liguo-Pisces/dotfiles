@@ -1,9 +1,11 @@
 #!/bin/env bash
 
-CURRENT_PATH=$(dirname $0)
+CURRENT_PATH=$(dirname $(realpath $0))
 
 set -e
 
-
 # Symlink
-ln -s "$CURRENT_PATH"/zshrc.zsh ~/.zshrc
+if [ ! -f ~/.zshrc ]
+then
+  ln -s "$CURRENT_PATH"/zshrc.symlink.zsh ~/.zshrc
+fi
