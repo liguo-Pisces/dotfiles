@@ -29,3 +29,22 @@ do
 done
 
 unset config_files
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# autoload -Uz promptinit
+# promptinit
+# prompt minimal
+
+export PATH=$HOME/apphub:$PATH
+
+# pnpm
+export PNPM_HOME="/home/liguo/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+#$(thefuck --alias)
+
+# eval $(thefuck --alias)
+
+alias ls='exa -g'

@@ -1,0 +1,3 @@
+[submodule "zsh/contrib/contrib-prompt/external/spaceship"]
+	path = zsh/contrib/contrib-prompt/external/spaceship
+	url = git@github.com:spaceship-prompt/spaceship-prompt.git
