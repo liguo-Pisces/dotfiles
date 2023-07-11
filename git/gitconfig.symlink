@@ -19,3 +19,6 @@
 [user]
 	email = guolee226@gmail.com
 	name = liguo
+
+[safe]
+  directory = /var/db/repos/local

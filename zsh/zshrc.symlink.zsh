@@ -11,8 +11,11 @@ fi
 
 # Env
 export EDITOR=vim
-
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/apphub:$PATH
+
+# Alias
+alias ls='exa -g'
 
 # History
 HISTFILE=~/.zsh_history
@@ -20,48 +23,42 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
-# Dotfiles
-export DOTFILES=$(dirname $(dirname $(realpath $0)))
-config_files=($DOTFILES/**/*.zsh)
-for file in ${(M)config_files:#*/setting.zsh}
-do
-  source $file
-done
-
-unset config_files
-
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # autoload -Uz promptinit
 # promptinit
 # prompt minimal
 
-export PATH=$HOME/apphub:$PATH
-
-# pnpm
-export PNPM_HOME="/home/liguo/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
-
-#$(thefuck --alias)
-
-# eval $(thefuck --alias)
-
-alias ls='exa -g'
-
 # kitty
-export PATH=~/.local/kitty.app/bin:$PATH
+#export PATH=~/.local/kitty.app/bin:$PATH
 
 # Load pyenv automatically by appending
 # the following to ~/.bash_profile if it exists, otherwise ~/.profile (for login shells) and ~/.bashrc (for interactive shells) :
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 # Restart your shell for the changes to take effect.
 
 # Load pyenv-virtualenv automatically by adding
 # the following to ~/.bashrc:
 
-eval "$(pyenv virtualenv-init -)"
+#eval "$(pyenv virtualenv-init -)"
+
+# Podman
+#alias docker=podman
+
+# thefuck
+eval $(thefuck --alias)
+
+# Go
+export GO111MODULE=on
+export GOPROXY=https://goproxy.cn,direct
+export PATH=$PATH:~/go/bin
+
+# Pnpm
+alias pn=pnpm
+#export PNPM_HOME="~/.local/share/pnpm"
+#export PATH="$PNPM_HOME:$PATH"
